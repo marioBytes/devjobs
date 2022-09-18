@@ -1,6 +1,9 @@
 :root {
   --background-color: #f4f6f8;
   --font-color: #19202d;
+  --button-secondary: #eef0fc;
+  --button-secondary__hover: #c5c9f4;
+  --button-secondary__text-color: #5964e0;
 
   --violet: #5964e0;
   --light-violet: #5964e0;
@@ -15,6 +18,9 @@
 [data-theme='dark'] {
   --background-color: #121721;
   --font-color: #ffffff;
+  --button-secondary: #303642;
+  --button-secondary__hover: #696e76;
+  --button-secondary__text-color: #ffffff;
 }
 
 * {
@@ -59,4 +65,21 @@ h4 {
 p {
   font-size: 1rem;
   line-height: 1.625rem;
+}
+
+.button-primary {
+  background-color: var(--violet);
+}
+
+.button-primary:hover {
+  background-color: #939bf4;
+}
+
+.button-secondary {
+  background-color: var(--button-secondary);
+  color: var(--button-secondary__text-color);
+}
+
+.button-secondary:hover {
+  background-color: var(--button-secondary__hover);
 }
