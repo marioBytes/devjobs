@@ -1,0 +1,9 @@
+---
+import ButtonBase from './ButtonBase.astro';
+
+const { onclick } = Astro.props;
+---
+
+<ButtonBase className="button-secondary" onclick={onclick}>
+  <slot />
+</ButtonBase>
