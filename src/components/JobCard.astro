@@ -1,0 +1,86 @@
+---
+import Card from './Card.astro';
+
+export interface Props {
+  job: {
+    company: string;
+    contract: string;
+    logo: string;
+    logoBackground: string;
+    position: string;
+    postedAt: string;
+    location: string;
+  };
+}
+
+const {
+  job: { company, contract, logo, logoBackground, position, postedAt, location },
+} = Astro.props;
+---
+
+<Card className="job-card">
+  <div class="logo-container">
+    <div class="logo-background" style={`background-color: ${logoBackground}`}>
+      <img src={logo} alt="Scoot Logo" style="height: 0.75rem" />
+    </div>
+  </div>
+  <div class="job-info-container">
+    <div>
+      <div class="job-info">
+        <div class="job-info__top-info">
+          <p class="text-gray">{postedAt}</p>
+          <div class="circle"></div>
+          <p class="text-gray">{contract}</p>
+        </div>
+        <h3>{position}</h3>
+        <p class="text-gray">{company}</p>
+      </div>
+    </div>
+    <div>
+      <small class="text-light-violet text-bold">{location}</small>
+    </div>
+  </div>
+</Card>
+
+<style>
+  .job-card {
+    position: relative;
+    height: 228px;
+  }
+  .logo-container {
+    top: -20px;
+    position: absolute;
+  }
+  .logo-background {
+    border-radius: 15px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .job-info-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+  .job-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .job-info h3 {
+    margin: 0.25rem 0 0.5rem 0;
+  }
+  .job-info__top-info {
+    align-items: center;
+    display: flex;
+  }
+  .circle {
+    border-radius: 50%;
+    background-color: #6e8098;
+    height: 3px;
+    margin: 0 8px;
+    width: 3px;
+  }
+</style>
