@@ -66,20 +66,3 @@ p {
   font-size: 1rem;
   line-height: 1.625rem;
 }
-
-.button-primary {
-  background-color: var(--violet);
-}
-
-.button-primary:hover {
-  background-color: #939bf4;
-}
-
-.button-secondary {
-  background-color: var(--button-secondary);
-  color: var(--button-secondary__text-color);
-}
-
-.button-secondary:hover {
-  background-color: var(--button-secondary__hover);
-}

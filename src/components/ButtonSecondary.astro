@@ -7,3 +7,13 @@ const { onclick } = Astro.props;
 <ButtonBase className="button-secondary" onclick={onclick}>
   <slot />
 </ButtonBase>
+
+<style>
+  .button-secondary {
+    background-color: var(--button-secondary);
+    color: var(--button-secondary__text-color);
+  }
+  .button-secondary:hover {
+    background-color: var(--button-secondary__hover);
+  }
+</style>
