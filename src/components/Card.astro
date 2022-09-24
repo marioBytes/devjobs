@@ -1,0 +1,25 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class={`card ${className ? className : ''}`}>
+  <slot />
+</div>
+
+<style>
+  html {
+    --card-background: #ffffff;
+  }
+  html[data-theme='dark'] {
+    --card-background: #19202d;
+  }
+  .card {
+    background-color: var(--card-background);
+    border-radius: 6px;
+    padding: 4rem 2rem 2rem;
+  }
+</style>
