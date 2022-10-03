@@ -21,7 +21,7 @@ const {
 <Card className="job-card">
   <div class="logo-container">
     <div class="logo-background" style={`background-color: ${logoBackground}`}>
-      <img src={logo} alt="Scoot Logo" style="height: 0.75rem" />
+      <img src={logo} alt={`${company} logo`} class="logo" />
     </div>
   </div>
   <div class="job-info-container">
@@ -58,6 +58,9 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .logo {
+    max-height: 40px;
   }
   .job-info-container {
     display: flex;
