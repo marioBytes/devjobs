@@ -3,16 +3,16 @@ import devjobsLogo from '../assets/desktop/logo.svg';
 import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 
-<div>
-  <div class="header">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
+<nav class="header">
+  <div>
+    <a href="/">
       <img src={devjobsLogo} alt="devjobs logo" />
-      <div>
-        <ThemeSwitcher />
-      </div>
+    </a>
+    <div>
+      <ThemeSwitcher />
     </div>
   </div>
-</div>
+</nav>
 
 <style>
   .header {
@@ -22,6 +22,9 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     width: 100%;
   }
   .header > div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     margin: 0 auto;
     padding: 32px 0;
     width: 90%;
@@ -32,9 +35,22 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       height: 160px;
     }
   }
+  @media (min-width: 768px) {
+    .header > div {
+      width: 689px;
+    }
+  }
   @media (min-width: 769px) {
     .header {
       background-image: url('../assets/desktop/bg-pattern-header.svg');
+    }
+  }
+  @media (min-width: 1440px) {
+    .header {
+      background-position: center;
+    }
+    .header > div {
+      width: 1110px;
     }
   }
 </style>
