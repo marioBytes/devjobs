@@ -1,0 +1,75 @@
+---
+import JobCard from './JobCard.astro';
+
+type Job = {
+  company: string;
+  contract: string;
+  logo: string;
+  logoBackground: string;
+  position: string;
+  postedAt: string;
+  location: string;
+};
+
+export interface Props {
+  jobs: Job[];
+}
+
+const { jobs } = Astro.props;
+import {
+  Blogr,
+  CoffeeRoasters,
+  Creative,
+  CrowdFund,
+  Maker,
+  MasterCraft,
+  OfficeLite,
+  Pod,
+  Pomodoro,
+  Scoot,
+  TypeMaster,
+  Vector,
+} from '../icons';
+---
+
+<div class="job-container">
+  {
+    jobs.map((job) => {
+      if (job.company === 'Blogr') {
+        job.logo = Blogr;
+      } else if (job.company === 'Coffeeroasters') {
+        job.logo = CoffeeRoasters;
+      } else if (job.company === 'Creative') {
+        job.logo = Creative;
+      } else if (job.company === 'Crowdfund') {
+        job.logo = CrowdFund;
+      } else if (job.company === 'Maker') {
+        job.logo = Maker;
+      } else if (job.company === 'Mastercraft') {
+        job.logo = MasterCraft;
+      } else if (job.company === 'Office Lite') {
+        job.logo = OfficeLite;
+      } else if (job.company === 'Pod') {
+        job.logo = Pod;
+      } else if (job.company === 'Pomodoro') {
+        job.logo = Pomodoro;
+      } else if (job.company === 'Scoot') {
+        job.logo = Scoot;
+      } else if (job.company === 'Typemaster') {
+        job.logo = TypeMaster;
+      } else if (job.company === 'Vector') {
+        job.logo = Vector;
+      }
+
+      return <JobCard job={job} />;
+    })
+  }
+</div>
+
+<style>
+  .job-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+</style>
