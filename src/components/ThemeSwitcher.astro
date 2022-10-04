@@ -1,0 +1,61 @@
+---
+import Moon from '../assets/desktop/icon-moon.svg';
+import Sun from '../assets/desktop/icon-sun.svg';
+---
+
+<div class="theme-switcher-container">
+  <img src={Sun} alt="sun-icon" />
+  <div>
+    <input type="checkbox" checked={false} onclick="changeTheme()" id="theme-switch" />
+  </div>
+  <img src={Moon} alt="moon-icon" />
+</div>
+
+<style>
+  .theme-switcher-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+</style>
+
+<script is:inline>
+  const storedTheme = localStorage.getItem('devjobs-theme');
+  const themeSwitch = document.getElementById('theme-switch');
+  const htmlTag = document.documentElement;
+  const theme = htmlTag.getAttribute('data-theme');
+
+  const updateThemeTag = (theme) => {
+    htmlTag.setAttribute('data-theme', theme);
+  };
+
+  if (storedTheme && storedTheme !== theme) {
+    updateThemeTag(storedTheme);
+  }
+
+  const updateStoredTheme = (theme) => {
+    localStorage.setItem('devjobs-theme', theme);
+  }
+
+  const storeTheme = (theme) => {
+    if (!storedTheme) {
+      updateStoredTheme(theme);
+    }
+  };
+
+  const changeTheme = () => {
+    const theme = htmlTag.getAttribute('data-theme');
+    if (theme === 'light') {
+      updateThemeTag('dark');
+      storeTheme('dark');
+      updateStoredTheme('dark')
+    } else {
+      updateThemeTag('light');
+      storeTheme('light');
+      updateStoredTheme('light');
+    }
+
+    themeSwitch.checked = !!themeSwitch.checked;
+  };
+</script>
