@@ -1,0 +1,39 @@
+---
+import devjobsLogo from '../assets/desktop/logo.svg';
+---
+
+<div>
+  <div class="header">
+    <div>
+      <img src={devjobsLogo} alt="devjobs logo" />
+      <div>
+        <!-- theme switcher -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .header {
+    background-image: url('../assets/mobile/bg-pattern-header.svg');
+    background-repeat: no-repeat;
+    height: 136px;
+    width: 100%;
+  }
+  .header > div {
+    margin: 0 auto;
+    padding: 32px 0;
+    width: 90%;
+  }
+  @media (min-width: 376px) {
+    .header {
+      background-image: url('../assets/tablet/bg-pattern-header.svg');
+      height: 160px;
+    }
+  }
+  @media (min-width: 769px) {
+    .header {
+      background-image: url('../assets/desktop/bg-pattern-header.svg');
+    }
+  }
+</style>
