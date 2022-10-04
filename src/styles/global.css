@@ -67,6 +67,11 @@ p {
   line-height: 1.625rem;
 }
 
+.container {
+  margin: 25px auto;
+  width: 90%;
+}
+
 .text-gray {
   color: #6e8098;
 }
@@ -77,4 +82,15 @@ p {
 
 .text-bold {
   font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 689px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    width: 1110px;
+  }
 }
