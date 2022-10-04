@@ -1,13 +1,14 @@
 ---
 import devjobsLogo from '../assets/desktop/logo.svg';
+import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 
 <div>
   <div class="header">
-    <div>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
       <img src={devjobsLogo} alt="devjobs logo" />
       <div>
-        <!-- theme switcher -->
+        <ThemeSwitcher />
       </div>
     </div>
   </div>
