@@ -3,20 +3,62 @@ import Moon from '../assets/desktop/icon-moon.svg';
 import Sun from '../assets/desktop/icon-sun.svg';
 ---
 
-<div class="theme-switcher-container">
-  <img src={Sun} alt="sun-icon" />
-  <div>
-    <input type="checkbox" checked={false} onclick="changeTheme()" id="theme-switch" />
-  </div>
-  <img src={Moon} alt="moon-icon" />
+<div>
+  <label class="theme-switcher-container" for="theme-switch">
+    <img src={Sun} alt="sun-icon" class="theme-switcher-sun-icon" />
+    <div class="theme-switch-container">
+      <input type="checkbox" checked={false} onclick="changeTheme()" id="theme-switch" name="theme-switch" />
+      <span class="slider"></span>
+    </div>
+    <img src={Moon} alt="moon-icon" class="theme-switcher-moon-icon" />
+  </label>
 </div>
 
 <style>
   .theme-switcher-container {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
+  }
+  .theme-switcher-sun-icon {
+    height: 20px;
+    width: 19px;
+  }
+  .theme-switcher-moon-icon {
+    height: 12px;
+    width: 12px;
+  }
+  .theme-switch-container {
+    background-color: white;
+    border-radius: 12px;
+    display: inline-block;
+    padding: 5px;
+    position: relative;
+    height: 24px;
+    width: 48px;
+  }
+  #theme-switch {
+    height: 0;
+    opacity: 0;
+    width: 0;
+  }
+  .slider {
+    background-color: var(--violet);
+    border-radius: 50%;
+    content: "";
+    height: 14px;
+    position: absolute;
+    top: 5px;
+    transition: transform 200ms;
+    left: 5px;
+    width: 14px;
+  }
+  #theme-switch:checked + .slider {
+    left: unset;
+    transition: transform 200ms;
+    transform: translateX(20px);
   }
 </style>
 
@@ -36,7 +78,7 @@ import Sun from '../assets/desktop/icon-sun.svg';
 
   const updateStoredTheme = (theme) => {
     localStorage.setItem('devjobs-theme', theme);
-  }
+  };
 
   const storeTheme = (theme) => {
     if (!storedTheme) {
@@ -49,7 +91,7 @@ import Sun from '../assets/desktop/icon-sun.svg';
     if (theme === 'light') {
       updateThemeTag('dark');
       storeTheme('dark');
-      updateStoredTheme('dark')
+      updateStoredTheme('dark');
     } else {
       updateThemeTag('light');
       storeTheme('light');
