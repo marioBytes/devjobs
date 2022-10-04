@@ -44,19 +44,20 @@ import Sun from '../assets/desktop/icon-sun.svg';
     opacity: 0;
     width: 0;
   }
-  .slider {
+  .slider::before {
     background-color: var(--violet);
     border-radius: 50%;
-    content: "";
+    content: '';
     height: 14px;
     position: absolute;
     top: 5px;
     transition: transform 200ms;
-    left: 5px;
+    /* left: 5px; */
+    transform: translateX(-5px);
     width: 14px;
   }
-  #theme-switch:checked + .slider {
-    left: unset;
+  #theme-switch:checked + .slider::before {
+    /* left: unset; */
     transition: transform 200ms;
     transform: translateX(20px);
   }
@@ -70,6 +71,14 @@ import Sun from '../assets/desktop/icon-sun.svg';
 
   const updateThemeTag = (theme) => {
     htmlTag.setAttribute('data-theme', theme);
+  };
+
+  const updateCheckfield = (theme) => {
+    if (theme === 'light') {
+      themeSwitch.checked = false;
+    } else {
+      themeSwitch.checked = true;
+    }
   };
 
   if (storedTheme && storedTheme !== theme) {
@@ -86,18 +95,20 @@ import Sun from '../assets/desktop/icon-sun.svg';
     }
   };
 
+  updateCheckfield(storedTheme);
+
   const changeTheme = () => {
     const theme = htmlTag.getAttribute('data-theme');
     if (theme === 'light') {
       updateThemeTag('dark');
       storeTheme('dark');
       updateStoredTheme('dark');
+      updateCheckfield('dark');
     } else {
       updateThemeTag('light');
       storeTheme('light');
       updateStoredTheme('light');
+      updateCheckfield('light');
     }
-
-    themeSwitch.checked = !!themeSwitch.checked;
   };
 </script>
