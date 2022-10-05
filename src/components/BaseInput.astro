@@ -1,0 +1,35 @@
+---
+export interface Props {
+  className?: string;
+  id?: string;
+  name: string;
+  placeholder: string;
+}
+
+const { className, id, name, placeholder } = Astro.props;
+---
+
+<input
+  type="text"
+  class={`input ${className ? className : ''}`}
+  id={id ? id : name}
+  name={name}
+  placeholder={placeholder}
+/>
+
+<style>
+  .input {
+    background-color: transparent;
+    border: none;
+    color: var(--font-color);
+    font-family: inherit;
+    font-size: inherit;
+    padding: 8px;
+  }
+  .input::placeholder {
+    color: var(--dark_gray);
+  }
+  .input:focus {
+    outline: none;
+  }
+</style>
