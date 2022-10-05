@@ -1,8 +1,8 @@
 ---
-const { className, onclick } = Astro.props;
+const { props } = Astro;
 ---
 
-<button class={className} onclick={onclick}>
+<button {...props}>
   <slot />
 </button>
 

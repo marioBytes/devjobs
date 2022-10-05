@@ -1,10 +1,10 @@
 ---
 import ButtonBase from './ButtonBase.astro';
 
-const { onclick } = Astro.props;
+const { props } = Astro;
 ---
 
-<ButtonBase className="button-secondary" onclick={onclick}>
+<ButtonBase class="button-secondary" {...props}>
   <slot />
 </ButtonBase>
 
