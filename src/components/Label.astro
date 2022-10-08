@@ -3,10 +3,10 @@ export interface Props {
   forHtml: string;
 }
 
-const { forHtml } = Astro.props;
+const { props, props: { forHtml }} = Astro;
 ---
 
-<label for={forHtml} class="label">
+<label for={forHtml} class="label" {...props}>
   <slot />
 </label>
 
