@@ -1,0 +1,27 @@
+<div class="module-backdrop">
+  <div class="container module">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .module-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 998;
+  }
+  .module-hide {
+    display: none !important;
+  }
+  .module {
+    background-color: var(--card-background);
+    border-radius: 6px;
+    color: var(--font-color);
+    display: absolute;
+    padding: 24px;
+  }
+</style>
