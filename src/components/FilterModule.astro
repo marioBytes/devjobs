@@ -1,0 +1,33 @@
+---
+import BaseInput from './BaseInput.astro';
+import ButtonPrimary from './ButtonPrimary.astro';
+import Label from './Label.astro';
+import LocationIcon from '../assets/desktop/icon-location.svg';
+import Module from './Module.astro';
+import Checkbox from './Checkbox.astro';
+
+const contractTypes = [
+  { contractType: 'Freelance', value: 'freelance' },
+  { contractType: 'Full Time', value: 'full-time' },
+  { contractType: 'Part Time', value: 'part-time' },
+];
+---
+
+<Module>
+  <div style="display: flex; align-items: center;">
+    <img src={LocationIcon} alt="location-icon" />
+    <BaseInput name="location" placeholder="Filter by location..." />
+  </div>
+  <hr style="background-color: #6E8098; height: 1px; border: none; margin: 15px 0 5px;" />
+  <div>
+    {
+      contractTypes.map((contract) => (
+        <Label forHtml={`contract-${contract.value}`} style="justify-content: flex-start !important; gap: 10px;">
+          <Checkbox name={`contract-${contract.value}`} />
+          <p>{contract.contractType} Only</p>
+        </Label>
+      ))
+    }
+    <ButtonPrimary style="width: 100%">Search</ButtonPrimary>
+  </div>
+</Module>
