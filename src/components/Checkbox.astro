@@ -1,0 +1,31 @@
+---
+const {
+  props,
+  props: { name, id },
+} = Astro;
+---
+
+<div>
+  <input class="checkbox" type="checkbox" name={name} id={id || name} {...props} />
+</div>
+
+<style>
+  .checkbox {
+    background-color: #979797;
+    border: none;
+    border-radius: 3px;
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 24px;
+    -webkit-appearance: none;
+  }
+  .checkbox:checked::after {
+    color: #ffffff;
+    content: '\2713';
+    font-size: 1.2rem;
+    left: 25%;
+    position: absolute;
+    top: 5%;
+  }
+</style>
